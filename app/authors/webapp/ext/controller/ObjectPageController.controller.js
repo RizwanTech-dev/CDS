@@ -20,6 +20,8 @@ sap.ui.define([
 			onInit: function () {
 				// you can access the Fiori elements extensionAPI via this.base.getExtensionAPI
 				this.getView().setModel(new JSONModel(), "booksDialogMdl")
+					// for getting author id
+		
 			}
 		},
 		createBook: async function () {
@@ -39,6 +41,8 @@ sap.ui.define([
 		},
 
 		onSaveDialog: function () {
+			     var oContext = this.base.getExtensionAPI().getBindingContext();
+				let sAuthorId = oContext?.getProperty("ID") ||null;
 
 			var oLocal = this.getView().getModel("booksDialogMdl").getData();
 			var oModel = this.getView().getModel();
@@ -50,7 +54,7 @@ sap.ui.define([
 				type: oLocal.type,
 				cost: oLocal.cost,
 				currency_code: oLocal.currency,
-				author_ID: oLocal.author_ID
+				author_ID: sAuthorId        //oLocal.author_ID
 			});
 
 			oContext.created().then(function () {
