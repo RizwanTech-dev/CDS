@@ -19,80 +19,32 @@ annotate service.Authors with @(
         {
             $Type : 'UI.ReferenceFacet',
             ID : 'GeneratedFacet1',
-            Label : 'Authors',
+            Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
         },
         {
             $Type : 'UI.ReferenceFacet',
             Label : 'Books',
-            ID : 'AddBooks',
-            Target : 'books/@UI.LineItem#AddBooks',
+            ID : 'Books',
+            Target : 'books/@UI.LineItem#Books',
         },
     ],
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'Name',
+            Label : 'name',
             Value : name,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'Age',
+            Label : 'age',
             Value : age,
         },
     ],
 );
 
 annotate service.Books with @(
-    UI.LineItem #AddBooks : [
-        {
-            $Type : 'UI.DataField',
-            Value : ID,
-            Label : 'ID',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : author_ID,
-            Label : 'Author ID',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : cost,
-            Label : 'Cost',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : title,
-            Label : 'title',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : type,
-            Label : 'type',
-        },
+    UI.LineItem #Books : [
     ]
 );
-
-annotate service.Authors with {
-    name @(
-        Common.ValueList : {
-            $Type : 'Common.ValueListType',
-            CollectionPath : 'Products',
-            Parameters : [
-                {
-                    $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : name,
-                    ValueListProperty : 'title',
-                },
-            ],
-            Label : 'products',
-        },
-        Common.ValueListWithFixedValues : true,
-)};
-
-annotate service.Products with {
-    title @(
-        Common.Text : descr,
-        Common.Text.@UI.TextArrangement : #TextFirst,
-)};
 

@@ -1,4 +1,12 @@
-sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExtension) {
+// const { func } = require("@sap/cds/lib/ql/cds-ql");
+
+sap.ui.define([
+	'sap/ui/core/mvc/ControllerExtension',
+	'sap/ui/core/Fragment',
+	'sap/ui/base/Event',
+	'sap/ui/model/json/JSONModel'
+
+], function (ControllerExtension, Fragment, Event, JSONModel) {
 	'use strict';
 
 	return ControllerExtension.extend('com.capproject.authors.ext.controller.ObjectPageController', {
@@ -11,11 +19,51 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 			 */
 			onInit: function () {
 				// you can access the Fiori elements extensionAPI via this.base.getExtensionAPI
-				var oModel = this.base.getExtensionAPI().getModel();
-			},
-			onSaveChapter: function () {
-				console.log("Save Triggered");
+				this.getView().setModel(new JSONModel(), "booksDialogMdl")
 			}
+		},
+		createBook: async function () {
+			console.log("createBook");
+
+			if (!this._oDialog) {
+				this._oDialog = await Fragment.load({
+					id: this.base.getView().getId(), // 🔥 VERY IMPORTANT
+					name: "com.capproject.authors.ext.fragment.AddBooksAndChapters",
+					controller: this
+				});
+
+				this.base.getView().addDependent(this._oDialog);
+			}
+
+			this._oDialog.open(); // ✅ correct reference
+		},
+
+		onSaveDialog: function () {
+
+			var oLocal = this.getView().getModel("booksDialogMdl").getData();
+			var oModel = this.getView().getModel();
+
+			var oBinding = oModel.bindList("/Books");
+
+			var oContext = oBinding.create({
+				title: oLocal.title,
+				type: oLocal.type,
+				cost: oLocal.cost,
+				currency_code: oLocal.currency,
+				author_ID: oLocal.author_ID
+			});
+
+			oContext.created().then(function () {
+				sap.m.MessageToast.show("Book Created");
+			}).catch(function () {
+				sap.m.MessageToast.show("Error");
+			});
+
+			this._oDialog.close();
+		},
+
+		onCloseDialog: function () {
+			this._oDialog.close(); // ✅ now works
 		}
 	});
 });

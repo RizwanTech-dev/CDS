@@ -9,9 +9,9 @@ service AdminService {
         descr:String(1111);
     }
 
-@odata.draft.enabled
+    @odata.draft.enabled
     entity Authors as projection on lit.Authors;
-    
+
     entity Books as projection on lit.Books;
     entity Chapters as projection on lit.Chapters;
 

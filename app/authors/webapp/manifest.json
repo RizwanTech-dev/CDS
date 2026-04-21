@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.22.0",
-      "toolsId": "c8a95703-4075-411a-84a4-a653b6939f1f"
+      "toolsId": "d08866e5-2c14-4a2f-b54f-09f838bdb595"
     },
     "dataSources": {
       "mainService": {
@@ -114,15 +114,6 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
-                  },
-                  "actions": {
-                    "openDialog": {
-                      "press": ".extension.com.capproject.authors.ext.controller.ListReportController.openDialog",
-                      "visible": true,
-                      "enabled": true,
-                      "requiresSelection": false,
-                      "text": "openDialog"
-                    }
                   }
                 }
               }
@@ -138,10 +129,10 @@
               "editableHeaderContent": false,
               "contextPath": "/Authors",
               "controlConfiguration": {
-                "books/@com.sap.vocabularies.UI.v1.LineItem#AddBooks": {
+                "books/@com.sap.vocabularies.UI.v1.LineItem#Books": {
                   "actions": {
                     "createBooks": {
-                      "press": "com.capproject.authors.ext.controller.CreateBooksHandler.createBook",
+                      "press": ".extension.com.capproject.authors.ext.controller.ObjectPageController.createBook",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
@@ -158,9 +149,6 @@
     "extends": {
       "extensions": {
         "sap.ui.controllerExtensions": {
-          "sap.fe.templates.ListReport.ListReportController": {
-            "controllerName": "com.capproject.authors.ext.controller.ListReportController"
-          },
           "sap.fe.templates.ObjectPage.ObjectPageController": {
             "controllerName": "com.capproject.authors.ext.controller.ObjectPageController"
           }
