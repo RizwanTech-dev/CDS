@@ -4,8 +4,8 @@
     xmlns:f="sap.ui.layout.form">
 
     <Dialog
-        id="addChapterDialog"
-        title="{i18n>addChapterTitle}"
+        id="addBooksAndChapters"
+        title="Books"
         contentWidth="400px"
         draggable="true"
         resizable="true">
@@ -24,10 +24,10 @@
                 columnsM="1">
 
                 <f:content>
-                    <Label id="chapterNameLabel" text="{i18n>chapterNameLabel}" required="true"/>
+                    <Label id="books" text="Books" required="true"/>
                     <Input
                         id="chapterNameInput"
-                        placeholder="{i18n>chapterNamePlaceholder}"
+                        placeholder="add Book Name"
                         value="{newChapter>/chapterName}"
                         maxLength="100"
                         valueLiveUpdate="true"
@@ -40,13 +40,13 @@
         <buttons>
             <Button
                 id="saveChapterBtn"
-                text="{i18n>save}"
+                text="Save"
                 type="Emphasized"
                 enabled="{newChapter>/isValid}"
                 press=".onSaveChapter"/>
             <Button
                 id="cancelChapterBtn"
-                text="{i18n>cancel}"
+                text="Cancel"
                 press=".onCancelChapter"/>
         </buttons>
 

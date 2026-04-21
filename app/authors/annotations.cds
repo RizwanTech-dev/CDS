@@ -73,3 +73,26 @@ annotate service.Books with @(
     ]
 );
 
+annotate service.Authors with {
+    name @(
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Products',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : name,
+                    ValueListProperty : 'title',
+                },
+            ],
+            Label : 'products',
+        },
+        Common.ValueListWithFixedValues : true,
+)};
+
+annotate service.Products with {
+    title @(
+        Common.Text : descr,
+        Common.Text.@UI.TextArrangement : #TextFirst,
+)};
+
