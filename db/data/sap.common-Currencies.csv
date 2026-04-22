@@ -1,6 +1,8 @@
 code,symbol,minorUnit,name,descr
-913,13913,96,name-25813913,descr-25813913
-741,46741,2,name-14146741,descr-14146741
-742,46742,19,name-14146742,descr-14146742
-743,46743,50,name-14146743,descr-14146743
-744,46744,39,name-14146744,descr-14146744
+INR,₹,2,Indian Rupee,Currency of India
+USD,$,2,US Dollar,Currency of United States
+EUR,€,2,Euro,Currency of Eurozone countries
+JPY,¥,0,Japanese Yen,Currency of Japan
+GBP,£,2,Pound Sterling,Currency of United Kingdom
+AUD,$,2,Australian Dollar,Currency of Australia
+CAD,$,2,Canadian Dollar,Currency of Canada

@@ -1,11 +1,15 @@
 code,locale,name,descr
-913,ru,name-23051579,descr-23051579
-913,zh,name-23051580,descr-23051580
-741,hu,name-3819106,descr-3819106
-741,pt,name-3819107,descr-3819107
-742,zh,name-30907479,descr-30907479
-742,ru,name-30907480,descr-30907480
-743,ro,name-27056573,descr-27056573
-743,fi,name-27056574,descr-27056574
-744,fi,name-22568345,descr-22568345
-744,sv,name-22568346,descr-22568346
+INR,en,Indian Rupee,Currency of India
+INR,hi,भारतीय रुपया,भारत की मुद्रा
+USD,en,US Dollar,Currency of United States
+USD,es,Dólar estadounidense,Moneda de Estados Unidos
+EUR,en,Euro,Currency of Eurozone countries
+EUR,de,Euro,Währung der Eurozone
+JPY,en,Japanese Yen,Currency of Japan
+JPY,ja,日本円,日本の通貨
+GBP,en,Pound Sterling,Currency of United Kingdom
+GBP,fr,Livre sterling,Monnaie du Royaume-Uni
+AUD,en,Australian Dollar,Currency of Australia
+AUD,zh,澳大利亚元,澳大利亚的货币
+CAD,en,Canadian Dollar,Currency of Canada
+CAD,fr,Dollar canadien,Monnaie du Canada
