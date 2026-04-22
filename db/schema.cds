@@ -6,12 +6,12 @@ entity Authors :cuid{
     name:String;
     age:Integer;
 
-    books:Association to many Books on books.author =$self; 
+    books:Composition of many Books on books.author =$self; 
 }
 
 entity Books:cuid,managed{
     title: String;
-    type :String;
+    type : String;
     cost : Decimal(11,2);
     currency:Currency;
 

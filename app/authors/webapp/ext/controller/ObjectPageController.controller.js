@@ -20,8 +20,8 @@ sap.ui.define([
 			onInit: function () {
 				// you can access the Fiori elements extensionAPI via this.base.getExtensionAPI
 				this.getView().setModel(new JSONModel(), "booksDialogMdl")
-					// for getting author id
-		
+				// for getting author id
+
 			}
 		},
 		createBook: async function () {
@@ -40,34 +40,46 @@ sap.ui.define([
 			this._oDialog.open(); // ✅ correct reference
 		},
 
-		onSaveDialog: function () {
-			     var oContext = this.base.getExtensionAPI().getBindingContext();
-				let sAuthorId = oContext?.getProperty("ID") ||null;
+		onSaveDialog: async function () {
+			//Extention API
+			const oExtAPI = this.base.getExtensionAPI();
+			const oParentContext = oExtAPI.getBindingContext();
+			const oView = this.base.getView();
 
-			var oLocal = this.getView().getModel("booksDialogMdl").getData();
-			var oModel = this.getView().getModel();
+			const oLocal = oView.getModel("booksDialogMdl").getData();
+			const oBinding = oParentContext.getModel().bindList(
+				oParentContext.getPath() + "/books"
+			)
+			try {
+				var oContext = oBinding.create({
+					title: oLocal.title,
+					type: oLocal.type,
+					cost: oLocal.cost,
+					currency_code: oLocal.currency,
+					// author_ID: sAuthorId        //oLocal.author_ID
+				});
 
-			var oBinding = oModel.bindList("/Books");
+				await oContext.created(); // ✅ draft created
+				sap.m.MessageToast.show("Book added to draft");
+				// await oExtAPI.invokeActions("draftActivate", [oContext]);
 
-			var oContext = oBinding.create({
-				title: oLocal.title,
-				type: oLocal.type,
-				cost: oLocal.cost,
-				currency_code: oLocal.currency,
-				author_ID: sAuthorId        //oLocal.author_ID
-			});
+				// sap.m.MessageToast.show("Book Created & Activated");
 
-			oContext.created().then(function () {
-				sap.m.MessageToast.show("Book Created");
-			}).catch(function () {
+				this._oDialog.close();
+
+				const oModel = this.base.getView().getModel();
+				oModel.refresh();
+
+				oExtAPI.refresh(); //UI Refresh
+			} catch (e) {
 				sap.m.MessageToast.show("Error");
-			});
-
-			this._oDialog.close();
+				console.error(e);
+			}
 		},
 
 		onCloseDialog: function () {
 			this._oDialog.close(); // ✅ now works
+			this.getView().getModel("booksDialogMdl").setData({});
 		}
 	});
 });

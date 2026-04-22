@@ -1,50 +1,54 @@
 using AdminService as service from '../../srv/admin-service';
+
 annotate service.Authors with @(
-    UI.FieldGroup #GeneratedGroup : {
-        $Type : 'UI.FieldGroupType',
+    UI.FieldGroup #GeneratedGroup: {
+        $Type: 'UI.FieldGroupType',
         Data : [
             {
-                $Type : 'UI.DataField',
-                Label : 'name',
-                Value : name,
+                $Type: 'UI.DataField',
+                Label: 'name',
+                Value: name,
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'age',
-                Value : age,
+                $Type: 'UI.DataField',
+                Label: 'age',
+                Value: age,
             },
         ],
     },
-    UI.Facets : [
+    UI.Facets                    : [
         {
             $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
+            ID    : 'GeneratedFacet1',
             Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
+            Target: '@UI.FieldGroup#GeneratedGroup',
         },
         {
             $Type : 'UI.ReferenceFacet',
             Label : 'Books',
-            ID : 'Books',
-            Target : 'books/@UI.LineItem#Books',
+            ID    : 'Books',
+            Target: 'books/@UI.LineItem#Books',
         },
     ],
-    UI.LineItem : [
+    UI.LineItem                  : [
         {
-            $Type : 'UI.DataField',
-            Label : 'name',
-            Value : name,
+            $Type: 'UI.DataField',
+            Label: 'name',
+            Value: name,
         },
         {
-            $Type : 'UI.DataField',
-            Label : 'age',
-            Value : age,
+            $Type: 'UI.DataField',
+            Label: 'age',
+            Value: age,
         },
     ],
 );
 
-annotate service.Books with @(
-    UI.LineItem #Books : [
-    ]
-);
+annotate service.Books with @(UI.LineItem #Books: [
+    {Value: title},
+    {Value: type},
+    {Value: cost},
+    {Value: currency_code}
+]);
 
+annotate AdminService.Books with @UI.CreateHidden: true;
