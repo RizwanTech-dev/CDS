@@ -45,11 +45,9 @@ annotate service.Authors with @(
 );
 
 annotate service.Books with @(UI.LineItem #Books: [
-    {Value: age},
     {Value: title},
     {Value: type},
     {Value: cost},
-    {Value: currency}
 ]);
 
 annotate service.Books with @UI.CreateHidden;
