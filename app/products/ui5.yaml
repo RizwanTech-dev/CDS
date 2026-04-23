@@ -2,7 +2,7 @@
 
 specVersion: "4.0"
 metadata:
-  name: com.capproject.products.products
+  name: com.capproject.products
 type: application
 server:
   customMiddleware:

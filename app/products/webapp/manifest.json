@@ -1,7 +1,7 @@
 {
   "_version": "1.83.0",
   "sap.app": {
-    "id": "com.capproject.products.products",
+    "id": "com.capproject.products",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.22.0",
-      "toolsId": "6967b990-7899-46c1-874c-c0d4a4bfdb97"
+      "toolsId": "b125eee5-dc2e-4297-b9ec-b9901f7ccc0a"
     },
     "dataSources": {
       "mainService": {
@@ -45,7 +45,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.147.0",
+      "minUI5Version": "1.147.1",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -60,7 +60,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.capproject.products.products.i18n.i18n"
+          "bundleName": "com.capproject.products.i18n.i18n"
         }
       },
       "": {

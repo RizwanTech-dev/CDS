@@ -1,6 +1,4 @@
-using AdminService as service from '../../srv/admin-service';
-using from '@sap/cds/common';
-
+using AuthorService as service from '../../srv/authors-service';
 
 annotate service.Authors with @(
     UI.FieldGroup #GeneratedGroup: {
@@ -47,20 +45,11 @@ annotate service.Authors with @(
 );
 
 annotate service.Books with @(UI.LineItem #Books: [
+    {Value: age},
     {Value: title},
     {Value: type},
     {Value: cost},
-    {Value: currency_code}
+    {Value: currency}
 ]);
 
-annotate AdminService.Books with @UI.CreateHidden: true;
-annotate service.Currencies with {
-    code @(
-        Common.Text : name,
-        Common.Text.@UI.TextArrangement : #TextLast,
-)};
-
-annotate service.Books with {
-    currency @Common.ValueListWithFixedValues : false
-};
-
+annotate service.Books with @UI.CreateHidden;

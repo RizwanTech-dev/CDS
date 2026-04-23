@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Mon Apr 20 2026 09:07:52 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Thu Apr 23 2026 10:46:27 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>SAP Fiori Application Generator|
 |**App Generator Version**<br>1.22.0|
 |**Generation Platform**<br>SAP Business Application Studio|
@@ -9,10 +9,10 @@
 |**Service Type**<br>Local CAP|
 |**Service URL**<br>http://localhost:4004/odata/v4/AdminService/|
 |**Module Name**<br>products|
-|**Application Title**<br>products|
-|**Namespace**<br>com.capproject.products|
+|**Application Title**<br>Products|
+|**Namespace**<br>com.capproject|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.147.0|
+|**UI5 Version**<br>1.147.1|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>True, see https://www.npmjs.com/package/@sap-ux/eslint-plugin-fiori-tools#rules for the eslint rules.|
 |**Main Entity**<br>Products|

@@ -1,5 +1,3 @@
-// const { func } = require("@sap/cds/lib/ql/cds-ql");
-
 sap.ui.define([
 	'sap/ui/core/mvc/ControllerExtension',
 	'sap/ui/core/Fragment',
@@ -8,6 +6,7 @@ sap.ui.define([
 
 ], function (ControllerExtension, Fragment, Event, JSONModel) {
 	'use strict';
+
 
 	return ControllerExtension.extend('com.capproject.authors.ext.controller.ObjectPageController', {
 		// this section allows to extend lifecycle hooks or hooks provided by Fiori elements
@@ -19,11 +18,13 @@ sap.ui.define([
 			 */
 			onInit: function () {
 				// you can access the Fiori elements extensionAPI via this.base.getExtensionAPI
+				var oModel = this.base.getExtensionAPI().getModel();
 				this.getView().setModel(new JSONModel(), "booksDialogMdl")
-				// for getting author id
-
 			}
 		},
+
+
+
 		createBook: async function () {
 			console.log("createBook");
 
